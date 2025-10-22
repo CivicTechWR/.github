@@ -51,6 +51,7 @@ If you're using this template for your CTWR project and discover a security issu
 - **Review the [Security Guide](docs/SECURITY_GUIDE.md)** before starting development
 - **Use secure coding practices** throughout development
 - **Enable automated security scanning** in your repository
+- **Follow the [Gitleaks Response Guide](.github/docs/gitleaks-response.md)** whenever the secret scanning workflow reports a finding
 - **Conduct security reviews** before major releases
 - **Train team members** on civic tech security considerations
 
@@ -98,22 +99,16 @@ When working with government partners:
 - **Privacy Commissioner of Canada** - Privacy law guidance
 - **PIPEDA** - Personal Information Protection and Electronic Documents Act
 
-## Emergency Security Contact
+## Security Contacts
 
-### Critical Security Issues
+### How to Reach Us
 
-For critical security vulnerabilities that pose immediate risk:
+- **Primary channels:** email `civictechwr@gmail.com`, post in the private organizers channel, or send a direct message in the CTWR Slack workspace
+- **GitHub escalation:** mention `@CivicTechWR/organizers` on the relevant issue or pull request to notify the organizers team
 
-**Contact:** [Emergency contact information]
-**Available:** 24/7 for critical issues
-**Response:** Immediate acknowledgment, resolution within 24 hours
+### Response Expectations
 
-### Non-Critical Security Issues
-
-For general security concerns or questions:
-
-**Contact:** [Regular contact information]
-**Response Time:** Within 48 hours during business days
+The CivicTechWR security group is volunteer-run and does not maintain a formal SLA. We address reports as quickly as the team is available and will coordinate next steps once someone has acknowledged the issue. If a report seems urgent, use every channel above and add “URGENT” in the subject or message so we can prioritize it when a volunteer is online.
 
 ## Security Acknowledgments
 

@@ -60,6 +60,7 @@
 - [ ] Privacy and data protection standards are maintained
 - [ ] Input validation and sanitization implemented
 - [ ] Security best practices followed
+- [ ] Responded to any Gitleaks comment and followed the [Gitleaks Response Guide](https://github.com/CivicTechWR/.github/blob/main/docs/gitleaks-response.md)
 - [ ] No new security vulnerabilities introduced
 
 ### Inclusivity & Accessibility
