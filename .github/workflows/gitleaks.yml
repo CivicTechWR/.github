@@ -15,6 +15,7 @@ jobs:
     name: Scan for Leaked Secrets
     runs-on: ubuntu-latest
     env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       RESPONSE_GUIDE_URL: https://github.com/CivicTechWR/.github/blob/main/docs/gitleaks-response.md
       GITLEAKS_VERSION: v8.18.2
     steps:
@@ -77,6 +78,7 @@ jobs:
         env:
           LEAK_COUNT: ${{ steps.summarize.outputs.count }}
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const path = 'gitleaks-report.json';
