@@ -134,15 +134,16 @@ body:
         - label: Impact measurement and evaluation
 
   - type: textarea
-    id: dvf-impact
+    id: community-values
     attributes:
-      label: DVF Impact
-      description: How does this partnership affect our DVF scorecard?
+      label: CivicTechWR Values Alignment
+      description: How does this partnership support our core principles?
       placeholder: |
-        - Community Partner score: [expected impact]
-        - Talent & Team: [skills/capacity gained]
-        - Technically Exciting: [technical validation/requirements]
-        - Civic Exciting: [community reach/impact enhanced]
+        - Accessibility first: [how the partnership reduces barriers]
+        - Privacy by design: [data sharing/stewardship considerations]
+        - Community impact: [community outcomes enabled]
+        - Maintainability: [support for sustainable collaboration]
+        - Inclusive collaboration: [ways partners/community are involved]
 
   - type: checkboxes
     id: partnership-stage-activities

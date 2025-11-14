@@ -83,15 +83,17 @@ body:
       required: true
 
   - type: checkboxes
-    id: dvf-impact
+    id: community-values
     attributes:
-      label: DVF Impact Areas
-      description: Which DVF areas does this task support?
+      label: CivicTechWR Values Alignment
+      description: Which core principles does this task support?
       options:
-        - label: Community Partner - Improves stakeholder relationships
-        - label: Talent & Team - Builds team capacity or engagement
-        - label: Technically Exciting - Advances technical innovation
-        - label: Civic Exciting - Increases community impact
+        - label: Accessibility first - reduces barriers for diverse users
+        - label: Privacy by design - stewards community data responsibly
+        - label: Community impact - addresses real civic needs
+        - label: Maintainability - keeps the project volunteer-friendly
+        - label: Inclusive collaboration - engages partners and community voices
+        - label: Not sure yet - needs discussion
 
   - type: dropdown
     id: effort-estimate

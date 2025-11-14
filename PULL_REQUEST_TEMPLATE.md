@@ -1,6 +1,6 @@
 # Pull Request
 
-> Quick change? Fill in **Summary**, the sections you touched (Testing / Accessibility / DVF), mark the rest as N/A, and hit create. The full template is here when you need it.
+> Quick change? Fill in **Summary**, the sections you touched (Testing / Accessibility / Community values), mark the rest as N/A, and hit create. The full template is here when you need it.
 
 ## Summary
 
@@ -78,37 +78,16 @@
 - [ ] Change supports community self-service goals
 - [ ] Improves community access to services/information
 
-## DVF Assessment Impact
+## Community Values Alignment
 
-How does this change affect our project's DVF scorecard?
+How does this change support CivicTechWR's core principles?
 
-**Community Partner** (1-5): [Current score] → [New score if changed]
-
-- [ ] No impact
-- [ ] Improves partner engagement or value delivery
-- [ ] Addresses partner feedback or requirements
-- [ ] Concern: [explain any negative impact]
-
-**Talent & Team** (1-5): [Current score] → [New score if changed]
-
-- [ ] No impact
-- [ ] Improves team productivity or learning
-- [ ] Demonstrates new technical skills
-- [ ] Concern: [explain any negative impact]
-
-**Technically Exciting** (1-5): [Current score] → [New score if changed]
-
-- [ ] No impact
-- [ ] Introduces innovative technology or approach
-- [ ] Improves technical architecture or quality
-- [ ] Concern: [explain any negative impact]
-
-**Civic Exciting** (1-5): [Current score] → [New score if changed]
-
-- [ ] No impact
-- [ ] Increases community impact or reach
-- [ ] Improves user experience for community members
-- [ ] Concern: [explain any negative impact]
+- [ ] Accessibility first - reduces barriers for diverse users
+- [ ] Privacy by design - stewards community data responsibly
+- [ ] Community impact - addresses real civic needs
+- [ ] Maintainability - keeps the project volunteer-friendly
+- [ ] Inclusive collaboration - engages partners and community voices
+- [ ] Not sure yet - needs discussion
 
 ## Demo Day Readiness
 
@@ -218,5 +197,5 @@ How does this change affect our project's DVF scorecard?
 
 - Focus on community impact and civic tech best practices
 - Verify accessibility standards are maintained
-- Check that change aligns with DVF framework and season goals
+- Check that change aligns with CivicTechWR community values and season goals
 - Ensure code quality supports volunteer contributor maintenance
