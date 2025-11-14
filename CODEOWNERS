@@ -1,0 +1,8 @@
+# CivicTechWR default CODEOWNERS
+
+* @CivicTechWR/organizers
+*.md @CivicTechWR/organizers
+*.yml @CivicTechWR/organizers
+*.yaml @CivicTechWR/organizers
+*.json @CivicTechWR/organizers
+.github/** @CivicTechWR/organizers
