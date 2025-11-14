@@ -4,10 +4,10 @@
 
 This CivicTechWR project template is actively maintained. Security updates are provided for:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| Latest  | :white_check_mark: |
-| Previous| :x:                |
+| Version  | Supported          |
+| -------- | ------------------ |
+| Latest   | :white_check_mark: |
+| Previous | :x:                |
 
 ## Reporting a Vulnerability
 
@@ -15,16 +15,17 @@ This CivicTechWR project template is actively maintained. Security updates are p
 
 If you discover a security vulnerability in this project template, please report it responsibly:
 
-**Email:** [security@civictechwr.org] (if available) or project maintainers
-**Response Time:** We aim to respond within 48 hours
+**Email:** [civictechwr@gmail.com](mailto:civictechwr@gmail.com) (mention “security” in the subject line)
+**GitHub escalation:** Mention `@CivicTechWR/organizers` on an issue or pull request if you need organizer attention.
+**Response Time:** Volunteers aim to acknowledge reports within 48 hours.
 
 ### For Project-Specific Security Issues
 
-If you're using this template for your CTWR project and discover a security issue:
+If you are using this template for your CivicTechWR project and discover a security issue:
 
-1. **Do NOT create a public GitHub issue**
-2. **Contact the project team directly** through private channels
-3. **Follow responsible disclosure** - give teams time to fix issues
+1. **Do not create a public GitHub issue.**
+2. **Contact the project team directly** through private channels, or email [civictechwr@gmail.com](mailto:civictechwr@gmail.com) if you are unsure who to reach.
+3. **Follow responsible disclosure** by giving maintainers time to investigate and fix the issue before any public discussion.
 
 ## Security Reporting Process
 
@@ -38,73 +39,74 @@ If you're using this template for your CTWR project and discover a security issu
 
 ### What Happens Next
 
-1. **Acknowledgment** - We'll confirm receipt within 48 hours
-2. **Assessment** - We'll evaluate the severity and impact
-3. **Fix Development** - We'll work on a solution
-4. **Disclosure** - We'll coordinate public disclosure with you
-5. **Recognition** - We'll acknowledge your contribution (if desired)
+1. **Acknowledgment** - We will confirm receipt within 48 hours.
+2. **Assessment** - We will evaluate the severity and impact.
+3. **Fix development** - We will work on a solution and share timelines when possible.
+4. **Disclosure** - We will coordinate responsible disclosure with you.
+5. **Recognition** - We will acknowledge your contribution if you would like.
 
 ## Security Best Practices for CTWR Projects
 
 ### For Project Teams
 
-- **Review the [Security Guide](docs/SECURITY_GUIDE.md)** before starting development
-- **Use secure coding practices** throughout development
-- **Enable automated security scanning** in your repository
-- **Follow the [Gitleaks Response Guide](.github/docs/gitleaks-response.md)** whenever the secret scanning workflow reports a finding
-- **Conduct security reviews** before major releases
-- **Train team members** on civic tech security considerations
+- **Plan security from the start** by identifying data flows and trust boundaries in project docs or issues.
+- **Use secure coding practices** throughout development and review contributions for potential risks.
+- **Enable automated scanning** such as GitHub secret scanning, Dependabot alerts, and linting that focuses on security concerns.
+- **Review collaborator access quarterly** and remove or reduce access for accounts that have not contributed recently to limit exposure from dormant accounts.
+- **Conduct security reviews** before major releases or partner deployments.
+- **Onboard volunteers** with guidance on handling sensitive community data.
 
 ### For Community Members
 
-- **Report security issues responsibly** - Don't create public issues for vulnerabilities
-- **Keep dependencies updated** - Regularly update project dependencies
-- **Follow security guidelines** when contributing code
-- **Respect user privacy** when testing or providing feedback
+- **Report security issues responsibly** by using the private channels listed above.
+- **Keep dependencies updated** in your contributions to minimize known vulnerabilities.
+- **Follow security guidelines** when contributing code or documentation.
+- **Respect user privacy** when testing or providing feedback.
 
 ## Civic Tech Security Considerations
 
 ### Community Data Protection
 
-CivicTech projects often handle sensitive community data. Special considerations:
+Civic tech projects often handle sensitive community data. Special considerations:
 
-- **Privacy by design** - Minimize data collection
-- **Transparency** - Be clear about data use
-- **Community consent** - Get explicit permission for data collection
-- **Secure storage** - Protect any collected data
-- **Data retention** - Delete data when no longer needed
+- **Privacy by design** - Minimize data collection.
+- **Transparency** - Be clear about data use.
+- **Community consent** - Get explicit permission for data collection when possible.
+- **Secure storage** - Protect any collected data.
+- **Data retention** - Delete data when no longer needed.
 
 ### Government Partnership Security
 
 When working with government partners:
 
-- **Understand data classification** - Know sensitivity levels
-- **Follow compliance requirements** - Meet government security standards
-- **Secure communication** - Use encrypted channels for sensitive discussions
-- **Access controls** - Limit who can access government data
-- **Audit trails** - Log access to sensitive information
+- **Understand data classification** so you know the sensitivity of information you handle.
+- **Follow compliance requirements** aligned to the partner’s standards.
+- **Use secure communication** channels for sensitive discussions.
+- **Apply access controls** to limit who can access government data.
+- **Maintain audit trails** that log access to sensitive systems or records.
 
 ## Security Resources
 
 ### For CTWR Teams
 
-- **[Security Guide](docs/SECURITY_GUIDE.md)** - Comprehensive security documentation
-- **[Technical Design](docs/TECHNICAL_DESIGN.md)** - Security architecture guidance
-- **[Contributing Guidelines](docs/CONTRIBUTING.md)** - Security requirements for contributors
+- **[CivicTechWR Contributing Guide](CONTRIBUTING.md)** - Collaboration and security expectations for contributors.
+- **[GitHub secret scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning)** - Overview of GitHub’s secret scanning capabilities.
+- **[Dependabot alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)** - Monitoring dependency vulnerabilities.
 
 ### External Resources
 
-- **OWASP Top 10** - Common web application security risks
-- **Canadian Centre for Cyber Security** - Government security resources
-- **Privacy Commissioner of Canada** - Privacy law guidance
-- **PIPEDA** - Personal Information Protection and Electronic Documents Act
+- **[OWASP Top Ten](https://owasp.org/www-project-top-ten/)** - Common web application security risks.
+- **[Canadian Centre for Cyber Security](https://www.cyber.gc.ca/en/)** - Government security guidance.
+- **[Office of the Privacy Commissioner of Canada](https://www.priv.gc.ca/en/)** - Privacy law guidance.
+- **[PIPEDA overview](https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/)** - Personal Information Protection and Electronic Documents Act resources.
 
 ## Security Contacts
 
 ### How to Reach Us
 
-- **Primary channels:** email `civictechwr@gmail.com`, post in the private organizers channel, or send a direct message in the CTWR Slack workspace
-- **GitHub escalation:** mention `@CivicTechWR/organizers` on the relevant issue or pull request to notify the organizers team
+- **Primary channel:** Email [civictechwr@gmail.com](mailto:civictechwr@gmail.com) (include context or repository name in the subject line).
+- **Slack escalation:** Direct message the organizers or post in the private organizers channel if you already have access.
+- **GitHub escalation:** Mention `@CivicTechWR/organizers` on the relevant issue or pull request to notify the organizers team.
 
 ### Response Expectations
 
@@ -141,9 +143,9 @@ CivicTechWR projects support security research conducted in good faith:
 
 Contact us through:
 
-- **CTWR Community Meetings** - Weekly Wednesday meetings
-- **GitHub Discussions** - For general security questions
-- **Direct Contact** - For sensitive security matters
+- **CivicTechWR community meetings** - Weekly Wednesday sessions noted on Meetup.
+- **GitHub Discussions** - For general security questions that do not contain sensitive details.
+- **Direct contact** - Email [civictechwr@gmail.com](mailto:civictechwr@gmail.com) for sensitive security matters.
 
 **This policy applies to:**
 
@@ -153,4 +155,4 @@ Contact us through:
 
 ---
 
-*This security policy is part of our commitment to building safe, trustworthy civic technology that serves our community responsibly.*
+_This security policy is part of our commitment to building safe, trustworthy civic technology that serves our community responsibly._

@@ -38,7 +38,6 @@ As civic technologists, we have additional responsibilities:
 ### Community-Centered Development
 
 * **Listen first** - Understand community needs before proposing solutions
-
 * **Include affected voices** - Center the people your project aims to serve
 * **Build with, not for** - Collaborate with community members as partners
 * **Question assumptions** - Regularly validate your understanding with real users
@@ -46,7 +45,6 @@ As civic technologists, we have additional responsibilities:
 ### Ethical Technology Practices
 
 * **Privacy by design** - Minimize data collection and protect user privacy
-
 * **Accessibility first** - Ensure your solutions work for people with diverse abilities
 * **Open by default** - Use open source tools and share your learnings
 * **Security consciousness** - Protect user data and system integrity
@@ -54,7 +52,6 @@ As civic technologists, we have additional responsibilities:
 ### Inclusive Participation
 
 * **Welcome newcomers** - Help people get started regardless of technical experience
-
 * **Share knowledge** - Teach and mentor others in the community
 * **Amplify diverse voices** - Ensure all community members can contribute
 * **Bridge divides** - Connect technical and non-technical community members
@@ -82,7 +79,7 @@ This includes:
 
 ### How to Report
 
-If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the community leaders at [contact email]. All reports will be handled with discretion.
+If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the community leaders at [civictechwr@gmail.com](mailto:civictechwr@gmail.com). You can also mention `@CivicTechWR/organizers` in a GitHub issue or direct message the organizers in Slack. All reports will be handled with discretion.
 
 For urgent safety concerns, please contact local authorities.
 
@@ -156,34 +153,29 @@ For broader community concerns:
 
 ### Technical Support
 
-* **Accessibility guidance** - [Link to accessibility resources]
-
-* **Privacy compliance** - [Link to privacy guidelines]
-* **Security best practices** - [Link to security resources]
+* **Accessibility guidance** - [W3C Web Accessibility Initiative](https://www.w3.org/WAI/standards-guidelines/)
+* **Privacy compliance** - [Office of the Privacy Commissioner of Canada](https://www.priv.gc.ca/en/)
+* **Security best practices** - [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
 
 ### Community Support
 
-* **Conflict resolution** - [Link to mediation resources]
-
-* **Mental health** - [Link to mental health resources]
-* **Professional development** - [Link to career and skill development]
+* **Conflict resolution** - [Community Justice Initiatives Waterloo Region](https://cjiwr.com/)
+* **Mental health** - [Canadian Mental Health Association Waterloo Wellington](https://cmhaww.ca/)
+* **Professional development** - [Communitech resources](https://www.communitech.ca/)
 
 ### Local Resources
 
-* **Crisis support** - [Local crisis helpline numbers]
-
-* **Legal assistance** - [Legal aid resources for tech/privacy issues]
-* **Diversity and inclusion** - [Local D&I organizations]
+* **Crisis support** - [Here 24/7 crisis services](https://here247.ca/)
+* **Legal assistance** - [Waterloo Region Community Legal Services](https://www.wrcls.ca/)
+* **Diversity and inclusion** - [Waterloo Region District School Board Equity Resources](https://www.wrdsb.ca/our-schools/equity/)
 
 ## Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.0, available at <https://www.contributor-covenant.org/version/2/0/code_of_conduct.html>.
+This Code of Conduct is adapted from the [Contributor Covenant 2.0](https://www.contributor-covenant.org/version/2/0/code_of_conduct.html).
 
 Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity).
 
 The civic tech specific guidelines were developed in collaboration with the CivicTechWR community and incorporate best practices from Code for America and other civic technology organizations.
-
-[homepage]: https://www.contributor-covenant.org
 
 ## Updates and Feedback
 
@@ -193,9 +185,9 @@ This Code of Conduct is a living document that evolves with our community. We we
 * Discussion at community meetings
 * Direct feedback to community leaders
 
-**Last Updated**: [Date]
-**Next Review**: [Date - typically annual]
+**Last Updated**: November 14, 2025
+**Next Review**: May 14, 2026
 
 ---
 
-Questions about this Code of Conduct? Contact us at [contact email] or discuss at our next community meeting.
+Questions about this Code of Conduct? Contact us at [civictechwr@gmail.com](mailto:civictechwr@gmail.com) or discuss at our next community meeting. You can also mention `@CivicTechWR/organizers` on GitHub or reach out via Slack if you need help quickly.
