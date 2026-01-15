@@ -15,7 +15,7 @@ This CivicTechWR project template is actively maintained. Security updates are p
 
 If you discover a security vulnerability in this project template, please report it responsibly:
 
-**Email:** [security@civictechwr.org] (if available) or project maintainers
+**Email:** [civictechwr@gmail.com] (if available) or project maintainers
 **Response Time:** We aim to respond within 48 hours
 
 ### For Project-Specific Security Issues
