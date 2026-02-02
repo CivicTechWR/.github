@@ -15,7 +15,7 @@ Apply these settings to the organization's default branch rule (settings > Code 
 3. **Required reviewers:**
    - At least **1 approval**, prefer **2 approvals** for active codebases.
    - **Require review from Code Owners** (once the default CODEOWNERS file lands).
-4. **Status checks:** enable the projects primary CI build (e.g., `lint`, `test`, `deploy-preview`). Start with the checks that already exist; new projects should add them before their first release.
+4. **Status checks:** enable the project's primary CI build (e.g., `lint`, `test`, `deploy-preview`). Start with the checks that already exist; new projects should add them before their first release.
 5. **Additional safeguards:**
    - Require conversation resolution before merging.
    - Require linear history.
@@ -48,7 +48,7 @@ Projects stay under `@CivicTechWR/organizers` until their project team exists **
 
 ## Default CODEOWNERS Strategy
 
-Create `.github/CODEOWNERS` (this repository) so GitHub applies it to every CivicTechWR repo that does not define its own CODEOWNERS file.
+Create a repository-root `CODEOWNERS` file (this repository) so GitHub applies it to every CivicTechWR repo that does not define its own CODEOWNERS file.
 
 ```text
 # Default owners for every file in repos without project-specific CODEOWNERS
@@ -65,7 +65,7 @@ Create `.github/CODEOWNERS` (this repository) so GitHub applies it to every Civi
 Key considerations:
 
 - Patterns in this default file must be generic. Repo-specific overrides belong in that repo.
-- Github evaluates CODEOWNERS top to bottom; place broader matches last.
+- GitHub evaluates CODEOWNERS patterns from top to bottom and uses the last matching pattern. In the examples above, the broad `*` entry appears first so that later, more specific patterns can override it.
 - Encourage projects to commit their own CODEOWNERS file as soon as they have a stable team. Provide them with a template (see below) and remind them to keep `@CivicTechWR/organizers` as a secondary owner for continuity.
 
 ### Sample project CODEOWNERS template

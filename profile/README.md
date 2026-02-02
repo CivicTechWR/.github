@@ -1,6 +1,6 @@
 # Welcome to CivicTech Waterloo Region
 
-Please standby—CTWR is coming back to life and taking over.
+Please stand by—CTWR is coming back to life and taking over.
 
 - Visit our website [CivicTechWR.org](https://civictechwr.org/)
 - Check out what projects are currently happening here: [CTWR Projects In Progress](https://github.com/orgs/CivicTechWR/projects/10/views/6?sliceBy%5Bvalue%5D=In+progress)

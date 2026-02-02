@@ -25,11 +25,11 @@ This guide helps CivicTechWR maintainers triage, contain, and remediate potentia
 ## 5. Verify and Prevent Recurrence
 
 - Re-run the Gitleaks workflow (or trigger it manually) to confirm the repository is clean.
-- Add new patterns to the `gitleaks.toml` allowlist only after validating they are false positives.
+- Update the Gitleaks configuration in `.github/workflows/gitleaks.yml` to add new allowlist patterns, and only after validating they are false positives.
 
 ## Reference
 
-- Repository workflow: `.github/workflows/reusable-gitleaks.yml`
+- Repository workflow: `.github/workflows/gitleaks.yml`
 - Team contact: `civictechwr@gmail.com`
 
 Always assume a leaked credential is compromised until rotated and confirmed inactive.
