@@ -185,7 +185,7 @@ body:
         - Community members affected: [estimated number/percentage]
         - Essential services impacted: [which civic functions]
         - Equity considerations: [who is excluded by this barrier]
-        - DVF score impact: [effect on civic exciting score]
+        - Community values affected: [accessibility, privacy, community impact, etc.]
   - type: checkboxes
     id: priority-factors
     attributes:
