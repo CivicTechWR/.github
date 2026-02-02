@@ -4,13 +4,13 @@ Welcome to our CivicTechWR project! We're excited to have you contribute to stre
 
 ## Code of Conduct
 
-This project follows the [CivicTechWR Code of Conduct](CODE_OF_CONDUCT.md). By participating, you're expected to uphold this code. Please report unacceptable behavior to [contact].
+This project follows the [CivicTechWR Code of Conduct](CODE_OF_CONDUCT.md). By participating, you're expected to uphold this code. Please report unacceptable behavior to civictechwr@gmail.com.
 
 ## How to Contribute
 
 ### For New Contributors
 
-1. **Join our community meetings** (Wednesdays at [time/location])
+1. **Join our community meetings** ([check our schedule](https://www.meetup.com/civictechwr/))
 2. **Read our project documentation** (especially [DVF_SCORECARD.md](./DVF_SCORECARD.md))
 3. **Check our current issues** labeled `good first issue`
 4. **Introduce yourself** in our communication channels
@@ -180,10 +180,10 @@ Longer explanation if needed, including:
 
 ### Where to Get Help
 
-- **Weekly meetings**: Wednesdays at [time/location]
-- **Slack/Discord**: [link to communication channel]
-- **Issues**: For technical questions, tag @[maintainer]
-- **Email**: [contact email] for sensitive matters
+- **Weekly meetings**: [Check our Meetup](https://www.meetup.com/civictechwr/)
+- **Slack**: [Join our Slack](https://join.slack.com/t/civictechwr/shared_invite/zt-2hk4c93hv-DEIbxR_z1xKj8cZmayVHTw)
+- **Issues**: For technical questions, tag project maintainers
+- **Email**: civictechwr@gmail.com for sensitive matters
 
 ### Response Time Expectations
 

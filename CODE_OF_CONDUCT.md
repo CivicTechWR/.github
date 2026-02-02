@@ -82,7 +82,7 @@ This includes:
 
 ### How to Report
 
-If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the community leaders at [contact email]. All reports will be handled with discretion.
+If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting the community leaders at civictechwr@gmail.com. All reports will be handled with discretion.
 
 For urgent safety concerns, please contact local authorities.
 
@@ -193,9 +193,9 @@ This Code of Conduct is a living document that evolves with our community. We we
 * Discussion at community meetings
 * Direct feedback to community leaders
 
-**Last Updated**: [Date]
-**Next Review**: [Date - typically annual]
+**Last Updated**: 2025-01-01
+**Next Review**: 2026-01-01
 
 ---
 
-Questions about this Code of Conduct? Contact us at [contact email] or discuss at our next community meeting.
+Questions about this Code of Conduct? Contact us at civictechwr@gmail.com or discuss at our next community meeting.
