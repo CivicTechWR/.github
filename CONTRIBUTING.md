@@ -4,7 +4,7 @@ We are excited to welcome contributors of every experience level who want to bui
 
 ## Community & Meetings
 
-- **Weekly meetup:** Wednesdays from 6:00–8:00 p.m. Eastern. Check the [CivicTechWR Meetup](https://www.meetup.com/civictechwr/) for the latest location, session topics, and hybrid details.
+- **Weekly meetup:** Wednesdays from 6:00–8:00 p.m. Eastern. Check the [CivicTechWR Events](https://lu.ma/civictechwr) for the latest location, session topics, and hybrid details.
 - **Slack workspace:** Join the conversation in [Slack](https://join.slack.com/t/civictechwr/shared_invite/zt-2ldijjy0i-gaGvPkuafPt9Zpn7jml70w). Introduce yourself in `#introductions` and connect with project teams in their channels.
 - **Project board:** Browse active initiatives and open roles via the [CivicTechWR Projects board](https://github.com/orgs/CivicTechWR/projects/10/views/6?sliceBy%5Bvalue%5D=In+progress).
 

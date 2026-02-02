@@ -143,7 +143,7 @@ CivicTechWR projects support security research conducted in good faith:
 
 Contact us through:
 
-- **CivicTechWR community meetings** - Weekly Wednesday sessions noted on Meetup.
+- **CivicTechWR community meetings** - Weekly Wednesday sessions noted on [Luma](https://lu.ma/civictechwr).
 - **GitHub Discussions** - For general security questions that do not contain sensitive details.
 - **Direct contact** - Email [civictechwr@gmail.com](mailto:civictechwr@gmail.com) for sensitive security matters.
 

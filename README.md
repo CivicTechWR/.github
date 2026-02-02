@@ -35,7 +35,7 @@ GitHub automatically uses files in `.github` as defaults across all repositories
 
 Found an issue or want to suggest improvements to our community files? Open an issue or pull request!
 
-- **Meetup:** [CivicTechWR Meetup](https://www.meetup.com/civictechwr/)
+- **Meetup:** [CivicTechWR Events](https://lu.ma/civictechwr)
 - **Website:** [CivicTechWR.org](https://civictechwr.org/)
 - **Email:** [civictechwr@gmail.com](mailto:civictechwr@gmail.com)
 
