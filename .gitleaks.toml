@@ -1,5 +1,10 @@
 title = "CivicTechWR Gitleaks Config"
 
+# Inherit all built-in Gitleaks detection rules.
+# Without this, a custom config file disables all default detectors.
+[extend]
+useDefault = true
+
 # Add allowlist entries below to suppress false positives.
 # Each entry should include a `description` explaining why it is safe.
 # Only add entries after confirming the value is not a real secret.
