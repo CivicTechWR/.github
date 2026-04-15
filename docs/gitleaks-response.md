@@ -1,31 +1,36 @@
 # Gitleaks Response Guide
 
-This guide helps CivicTechWR maintainers triage, contain, and remediate potential secrets flagged by automated Gitleaks scans.
+When this workflow comments on your pull request, it means Gitleaks spotted something that looks like a credential. The build stays green, but secrets must be handled quickly and carefully.
 
-## 1. Triage the Finding
+## Quick Checklist
 
-- Review the redacted report attached to the workflow run or pull request comment to identify the file and rule triggered.
-- Decide whether the flagged value is a real secret, test data, or a false positive.
+1. **Stop merging** the pull request until the investigation is complete.
+2. Open the PR comment or downloaded `gitleaks-report.json` artifact to review the redacted findings.
+3. Confirm whether each finding is a real secret or a false positive.
+4. Follow the appropriate section below and leave a short update on the PR comment.
 
-## 2. Contain the Exposure
+## If the Secret Is Real
 
-- Remove the secret from the repository immediately (revert the change or follow up with a commit that deletes it and uses environment variables or secrets instead).
-- Rotate or invalidate the exposed credential in the affected service (Supabase, Slack, third-party API, etc.).
+- **Rotate / revoke the credential immediately.** Use the relevant provider console (Supabase, Slack, third-party API, etc.) or contact the owner of the secret.
+- **Purge the secret from Git history.** Remove it locally (including from previous commits) and force-push a clean branch.
+  - Prefer [`git filter-repo`](https://github.com/newren/git-filter-repo) (or `git filter-branch` as a fallback) to rewrite history.
+  - After rewriting history, regenerate the artifact (`git commit --amend` or new commit) and push with `--force-with-lease`.
+  - If the secret landed in commit history already merged to the default branch, coordinate with maintainers before rewriting — downstream forks may need notification.
+- **Document replacements.** Update `.env.example` or secrets management notes so others know the new credential.
+- **Confirm the fix.** Run `gitleaks detect --redact` locally to verify the repository is clean before merging.
+- **Update the PR comment.** Reply to the workflow comment summarizing what was rotated and how history was cleaned (no need to paste secrets).
+- **For high-impact secrets** (production credentials, user data access), escalate immediately in the organizers' channel or email `civictechwr@gmail.com`.
 
-## 3. Clean the History (If Needed)
+## If It Is a False Positive
 
-- If the secret landed in commit history, coordinate with maintainers before rewriting history.
-- Use `git filter-repo` or provider tooling to purge historical references; ensure downstream forks are notified.
+- **Verify carefully.** Make sure the redacted value is truly benign (example: test data, dummy keys, or hashed values).
+- **Mask the pattern going forward.** Add an `allowlist` entry in your repository-level `.gitleaks.toml` and commit that change with a note explaining the rationale.
+- **Re-run locally.** Validate that `gitleaks detect --redact` reports no findings after the allowlist entry is added.
+- **Reply on the PR.** Note that the finding is a false positive and link to the configuration change.
 
-## 4. Communicate
+## Need Help?
 
-- Document the remediation steps in the pull request or issue, noting credential rotation status.
-- For high-risk disclosures, email `civictechwr@gmail.com` to escalate privately.
-
-## 5. Verify and Prevent Recurrence
-
-- Re-run the Gitleaks workflow (or trigger it manually) to confirm the repository is clean.
-- Update the Gitleaks configuration in `.github/workflows/gitleaks.yml` to add new allowlist patterns, and only after validating they are false positives.
+- Mention `@CivicTechWR/organizers` in the pull request comment if you need support rotating credentials or cleaning history.
 
 ## Reference
 
