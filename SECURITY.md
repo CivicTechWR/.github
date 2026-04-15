@@ -1,13 +1,8 @@
 # Security Policy
 
-## Supported Versions
+## Policy Maintenance
 
-This CivicTechWR project template is actively maintained. Security updates are provided for:
-
-| Version  | Supported          |
-| -------- | ------------------ |
-| Latest   | :white_check_mark: |
-| Previous | :x:                |
+This security policy is actively maintained by CivicTechWR organizers. It was last reviewed **November 14, 2025** and is scheduled for review **May 14, 2026**.
 
 ## Reporting a Vulnerability
 

@@ -3,35 +3,69 @@
 ## Goals
 
 - Give every repository an explicit review path so contributors know who approves changes.
+- Keep review load on project teams, not the organizers — each project owns its own merge gates.
 - Provide consistent guardrails (branch protection, required checks) that match CivicTechWR's volunteer-friendly workflow.
-- Offer a starting point that new projects can override without losing the safety net.
+
+## How CODEOWNERS Works in This Organization
+
+**Important:** GitHub does not propagate a `CODEOWNERS` file from the org-level `.github` repository to other repositories in the organization. The `CODEOWNERS` file in this repository protects only *this* repository.
+
+Every project repository that wants code-owner enforcement must commit its own `CODEOWNERS` file. The organizers team intentionally does not act as a default reviewer across the whole org — that would create a bottleneck on a volunteer team. Instead, each project team manages its own review requirements.
 
 ## Recommended Branch Protection Defaults
 
-Apply these settings to the organization's default branch rule (settings > Code security and analysis > Branch protections). Individual repos can tighten the requirements, but they should not weaken them without organizer sign-off.
+Apply these settings to each repository's default branch (Settings → Branches → Add branch protection rule). Individual repos can tighten the requirements, but should not weaken them without organizer sign-off.
 
 1. **Target branches:** `main` (and `master` for legacy repositories).
 2. **Require a pull request before merging.**
 3. **Required reviewers:**
-   - At least **1 approval**, prefer **2 approvals** for active codebases.
-   - **Require review from Code Owners** (once the default CODEOWNERS file lands).
-4. **Status checks:** enable the project's primary CI build (e.g., `lint`, `test`, `deploy-preview`). Start with the checks that already exist; new projects should add them before their first release.
+   - At least **1 approval** from a team member, prefer **2 approvals** for active codebases.
+   - **Require review from Code Owners** once the repo's own CODEOWNERS file is in place.
+4. **Status checks:** enable the project's primary CI build (e.g., `lint`, `test`, `deploy-preview`). Add checks before the first release; don't require checks that don't exist yet.
 5. **Additional safeguards:**
    - Require conversation resolution before merging.
    - Require linear history.
    - Allow force pushes only for administrators handling emergency fixes.
    - (Optional) Require signed commits if the project already enforces them.
-6. **Administrator enforcement:** keep the rule enforced for admins, with a documented emergency break-glass process.
+6. **Administrator enforcement:** keep the rule enforced for admins to prevent accidental direct pushes. See the break-glass procedure below for emergencies.
 
 Review the branch rule quarterly to confirm the status check list matches reality and that teams still have capacity for review.
+
+## Setting Up CODEOWNERS for a Project Repository
+
+Create a `CODEOWNERS` file in the repository root. Assign your project team as the owner, and optionally loop in the organizers for governance-sensitive paths.
+
+### Minimal template
+
+```text
+# Primary reviewers — replace with your project team
+* @CivicTechWR/your-project-team
+```
+
+### Extended template (recommended for active projects)
+
+```text
+# All files — project team reviews code changes
+* @CivicTechWR/your-project-team
+
+# Workflow and governance changes also notify organizers
+/.github/workflows/** @CivicTechWR/your-project-team @CivicTechWR/organizers
+/docs/**              @CivicTechWR/your-project-team @CivicTechWR/organizers
+```
+
+Key considerations:
+
+- GitHub evaluates CODEOWNERS patterns from top to bottom; the last matching pattern wins. Specific paths below the wildcard `*` will override it.
+- Check whether your repository already contains a CODEOWNERS file before creating one to avoid accidental duplicate entries.
+- Keep at least one organizer on workflow and governance paths so the org maintains visibility without owning the whole review queue.
 
 ## Organization Teams Snapshot
 
 | Team | Status | Scope / Suggested Repositories |
 | --- | --- | --- |
-| `@CivicTechWR/organizers` | Active | Default reviewers for repos without a dedicated team; governance repos like `.github`, `CTWR-Organization-Documentation`, `CTWR-Docs`. |
-| `@CivicTechWR/website` | Active | `ctwr-web`, `CTWR-Website`, `blog`. Add `People-Library-Project` if communications wants shared ownership. |
-| `@CivicTechWR/wrvotes` & `@CivicTechWR/wrvotesiteadmin` | Active | Election assets: `WRvotes`, `WRVotesPlaceholder`, `WRVotesMunicipal2022`, `WRVotesProv2025`, `WRVotesFed2025`, `WRVotesFed2025old`, `WRVotesFed`. |
+| `@CivicTechWR/organizers` | Active | Governance repos: `.github`, `CTWR-Organization-Documentation`, `CTWR-Docs`. Fallback reviewer for repos without a dedicated team. |
+| `@CivicTechWR/website` | Active | `ctwr-web`, `CTWR-Website`, `blog`. |
+| `@CivicTechWR/wrvotes` & `@CivicTechWR/wrvotesiteadmin` | Active | Election assets: `WRvotes`, `WRVotesPlaceholder`, `WRVotesMunicipal2022`, `WRVotesProv2025`, `WRVotesFed2025`, `WRVotesFed`. |
 | `@CivicTechWR/go-train-pass-project-team` | Active | `go-train-group-pass`. |
 | `@CivicTechWR/connected-kw` | Active | `connectedkw`. |
 | `@CivicTechWR/midtown-radio-app` | Active | `MidtownRadioApp`, `midtown-radio-launch-2025`. |
@@ -39,67 +73,52 @@ Review the branch rule quarterly to confirm the status check list matches realit
 | `@CivicTechWR/zonechanges` | Active | `WaterlooZoneChangeRequests`. |
 | `@CivicTechWR/ctwr-member-directory` | Active | `ctwr-member-directory`. |
 | `@CivicTechWR/project-pech` | Proposed | `project-pech`. Seed with `j2fyi` and an organizer for continuity. |
-| `@CivicTechWR/mappingwr` | Proposed | `mappingwr`, `municipal-engagement`. Pair `pnijjar` with supporting reviewers. |
-| `@CivicTechWR/storytelling` | Proposed | `storytelling`. Invite `ToddTurnbull` plus a communications lead. |
-| `@CivicTechWR/project-templates` | Proposed | `CTWR-ProjectTemplate`, `CTWR-Project-Template-New`, `CTWR-Template`, `CTWR-Docs`. Blend template maintainers (`BreakableHoodie`, `KristinaTaylor`, `livialima`) with organizers. |
-| `@CivicTechWR/improved-housing` | Proposed | `improved_housing_portal`. Ensure `keriwarr` and an organizer are maintainers. |
+| `@CivicTechWR/mappingwr` | Proposed | `mappingwr`, `municipal-engagement`. |
+| `@CivicTechWR/storytelling` | Proposed | `storytelling`. |
+| `@CivicTechWR/project-templates` | Proposed | `CTWR-ProjectTemplate`, `CTWR-Project-Template-New`, `CTWR-Template`, `CTWR-Docs`. |
+| `@CivicTechWR/improved-housing` | Proposed | `improved_housing_portal`. |
 
-Projects stay under `@CivicTechWR/organizers` until their project team exists **and** a repo-level CODEOWNERS file assigns the new team. Organizers should create teams when projects become active and revisit this table quarterly.
-
-## Default CODEOWNERS Strategy
-
-Create a repository-root `CODEOWNERS` file (this repository) so GitHub applies it to every CivicTechWR repo that does not define its own CODEOWNERS file.
-
-```text
-# Default owners for every file in repos without project-specific CODEOWNERS
-* @CivicTechWR/organizers
-
-# Documentation stays under organizer review until project teams override it
-*.md @CivicTechWR/organizers
-*.yml @CivicTechWR/organizers
-*.yaml @CivicTechWR/organizers
-*.json @CivicTechWR/organizers
-.github/** @CivicTechWR/organizers
-```
-
-Key considerations:
-
-- Patterns in this default file must be generic. Repo-specific overrides belong in that repo.
-- GitHub evaluates CODEOWNERS patterns from top to bottom and uses the last matching pattern. In the examples above, the broad `*` entry appears first so that later, more specific patterns can override it.
-- Encourage projects to commit their own CODEOWNERS file as soon as they have a stable team. Provide them with a template (see below) and remind them to keep `@CivicTechWR/organizers` as a secondary owner for continuity.
-
-### Sample project CODEOWNERS template
-
-```text
-# Primary reviewers
-* @CivicTechWR/project-team
-
-# Keep organizers looped in on governance docs
-/docs/** @CivicTechWR/organizers
-/.github/workflows/** @CivicTechWR/organizers @CivicTechWR/project-team
-```
+Projects without a dedicated team fall back to `@CivicTechWR/organizers` as reviewers until their team exists and their repo has its own CODEOWNERS file. Organizers should create teams when projects become active and revisit this table quarterly.
 
 ## Implementation Checklist
 
-1. **Confirm team access:** Ensure each team above has triage or write permissions on its corresponding repositories.
-2. **Add default CODEOWNERS:** Commit the file described above to this repo and roll it out.
-3. **Update branch protection:** Apply the recommended rule via the organization's default branch protection settings.
+1. **Confirm team access:** Ensure each team has triage or write permissions on its corresponding repositories.
+2. **Add a CODEOWNERS file to each active project repo:** Use the templates above. Do not rely on the organizer-level `.github` file — it does not propagate.
+3. **Update branch protection per repo:** Apply the recommended rule to each repository's default branch.
 4. **Communicate the change:** Post in `#organizers`, update `CTWR-Organization-Documentation`, and mention during the weekly meetup.
-5. **Repository follow-up:** Track which repos still rely solely on organizers and open issues inviting teams to add their own CODEOWNERS entries.
-6. **Before adding reviewers:** Confirm the repo does **not** already contain a CODEOWNERS file to avoid accidental overrides or duplicate entries.
+5. **Track coverage:** Open an issue to track which repos still lack a CODEOWNERS file and invite project teams to add their own.
+
+## Break-Glass Procedure
+
+When a merge is blocked by branch protection and normal review is unavailable (e.g., a Copilot-authored PR whose author cannot self-approve, or a time-sensitive fix with no available reviewer):
+
+1. Confirm the change has been reviewed by at least one person with context, even informally (Slack, in-person).
+2. Temporarily disable `enforce_admins` via the GitHub API or Settings:
+   ```bash
+   gh api repos/CivicTechWR/REPO/branches/main/protection/enforce_admins -X DELETE
+   ```
+3. Merge with admin privileges:
+   ```bash
+   gh pr merge NUMBER --admin --merge
+   ```
+4. Re-enable `enforce_admins` immediately after:
+   ```bash
+   gh api repos/CivicTechWR/REPO/branches/main/protection/enforce_admins -X POST
+   ```
+5. Post a note on the merged PR explaining why the break-glass was used.
+
+Do not use this procedure to skip security or compliance reviews.
 
 ## Maintenance Cadence
 
-- **Quarterly:** Review team membership, permissions, and branch protection rules.
-- **Season kickoff:** For each project sprint (12-week cycle), confirm the CODEOWNERS file lists current maintainers.
-- **After project sunset:** Archive the repo or revert CODEOWNERS to organizers-only ownership to avoid stale reviewers.
-
-Maintaining these guardrails keeps contributor expectations clear while still letting squads iterate quickly once their teams are established.
+- **Quarterly:** Review team membership, permissions, and branch protection rules across active repos.
+- **Season kickoff:** Confirm each active project's CODEOWNERS file lists current maintainers.
+- **After project sunset:** Archive the repo or revert CODEOWNERS to organizer-only ownership to avoid stale reviewers blocking future changes.
 
 ## Risks and Pitfalls
 
-- **Stale team membership:** CODEOWNERS blocks merges when listed reviewers are inactive. Reconfirm roster changes every quarter and any time a maintainer steps back.
-- **Existing CODEOWNERS files:** Repository-level files override the defaults. Always check for a local CODEOWNERS before assuming the organizers are the only reviewers.
+- **CODEOWNERS does not auto-propagate:** Repos without their own CODEOWNERS file have no code-owner enforcement, regardless of what this governance repo contains.
+- **Stale team membership:** CODEOWNERS blocks merges when listed reviewers are inactive. Reconfirm rosters every quarter and any time a maintainer steps back.
 - **Automation permissions:** Workflows that create teams or modify permissions require an organization-level Personal Access Token with `admin:org`; keep the token scoped and rotate it periodically.
-- **Template repositories:** Some templates are public yet seldom updated. If a project template lacks dedicated maintainers, leave organizers as owners to prevent PRs from stalling.
-- **Archived or legacy repos:** Election archives and similar repos may still receive security updates. Confirm whether they need active CODEOWNERS or should be archived to remove review pressure.
+- **Copilot-authored PRs:** GitHub prevents the user who prompted a Copilot agent from self-approving the resulting PR, even with admin override and `enforce_admins` enabled. Use the break-glass procedure above and ensure a second set of eyes reviews the change.
+- **Archived or legacy repos:** Election archives may still receive security updates. Confirm whether they need active CODEOWNERS or should be fully archived to remove review pressure.

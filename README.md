@@ -23,6 +23,11 @@ Default files that appear in all CivicTechWR repositories (unless overridden):
 
 - **profile/README.md** - Organization profile shown on the [CivicTechWR GitHub page](https://github.com/CivicTechWR)
 
+### Governance & Operations Docs
+
+- **docs/governance/codeowners-branch-protection.md** - Branch protection guidance, team roster, and break-glass procedure
+- **docs/gitleaks-response.md** - Secret scanning triage and remediation guide
+
 ## Why This Repository?
 
 GitHub automatically uses files in `.github` as defaults across all repositories in the organization. This ensures:
