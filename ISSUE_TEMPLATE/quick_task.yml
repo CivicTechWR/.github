@@ -25,15 +25,16 @@ body:
       description: Optional background, links to Figma/Miro/Docs.
       placeholder: 'Meeting notes from Sept 23'
   - type: dropdown
-    id: dvf
+    id: impact-focus
     attributes:
-      label: DVF Impact (pick one)
+      label: Impact Focus (pick one)
       options:
-        - No impact / N/A
-        - Community Partner
-        - Talent & Team
-        - Technically Exciting
-        - Civic Exciting
+        - Accessibility & inclusion
+        - Community impact
+        - Privacy & data stewardship
+        - Volunteer sustainability / maintainability
+        - Operational/housekeeping (no direct community impact)
+        - Not sure yet
     validations:
       required: false
   - type: checkboxes
