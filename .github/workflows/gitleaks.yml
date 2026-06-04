@@ -107,11 +107,12 @@ jobs:
             const findings = JSON.parse(fs.readFileSync('gitleaks-report.json', 'utf8'));
             const responseGuide = process.env.RESPONSE_GUIDE_URL;
             const sha = context.sha.substring(0, 7);
+            const ref = context.ref.replace('refs/heads/', '').replace('refs/tags/', '');
 
             const lines = findings.slice(0, 10).map((f) => {
-              const file = f.file ? `\`${f.file}\`` : 'unknown file';
-              const line = f.startLine ? ` (line ${f.startLine})` : '';
-              const rule = f.ruleId || f.rule || 'potential secret';
+              const file = f.File ? `\`${f.File}\`` : 'unknown file';
+              const line = f.StartLine ? ` (line ${f.StartLine})` : '';
+              const rule = f.RuleID || 'potential secret';
               return `- ${file}${line} — ${rule}`;
             }).join('\n');
 
@@ -121,7 +122,7 @@ jobs:
 
             const body = [
               '<!-- gitleaks-push-findings -->',
-              `@CivicTechWR/organizers — Gitleaks flagged **${process.env.LEAK_COUNT}** potential secret(s) in a direct push to \`${context.ref}\` by @${context.actor} (commit \`${sha}\`).`,
+              `@CivicTechWR/organizers — Gitleaks flagged **${process.env.LEAK_COUNT}** potential secret(s) in a direct push to \`${ref}\` by @${context.actor} (commit \`${sha}\`).`,
               '',
               lines,
               remainder,
@@ -156,9 +157,9 @@ jobs:
             }
 
             const lines = findings.slice(0, 10).map((finding) => {
-              const file = finding.file ? `\`${finding.file}\`` : 'unknown file';
-              const line = finding.startLine ? ` (line ${finding.startLine})` : '';
-              const rule = finding.ruleId || finding.rule || 'potential secret';
+              const file = finding.File ? `\`${finding.File}\`` : 'unknown file';
+              const line = finding.StartLine ? ` (line ${finding.StartLine})` : '';
+              const rule = finding.RuleID || 'potential secret';
               return `- ${file}${line} — ${rule}`;
             }).join('\n');
 
@@ -182,6 +183,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
+              per_page: 100,
             });
 
             const existing = comments.data.find(
@@ -316,9 +318,9 @@ jobs:
             const responseGuide = process.env.RESPONSE_GUIDE_URL;
 
             const lines = findings.slice(0, 10).map((f) => {
-              const file = f.file ? `\`${f.file}\`` : 'unknown file';
-              const line = f.startLine ? ` (line ${f.startLine})` : '';
-              const rule = f.ruleId || f.rule || 'potential secret';
+              const file = f.File ? `\`${f.File}\`` : 'unknown file';
+              const line = f.StartLine ? ` (line ${f.StartLine})` : '';
+              const rule = f.RuleID || 'potential secret';
               return `- ${file}${line} — ${rule}`;
             }).join('\n');
 
