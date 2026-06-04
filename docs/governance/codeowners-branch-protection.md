@@ -98,9 +98,15 @@ When a merge is blocked by branch protection and normal review is unavailable (e
    gh api repos/CivicTechWR/REPO/branches/main/protection/enforce_admins -X DELETE
    ```
 3. Merge with admin privileges:
+
+   > **Note:** `--admin` overrides *all* branch protection rules including required CI checks (gitleaks, lint, tests). Before using it, manually confirm the change has been reviewed and the gitleaks scan has passed on this branch.
+
    ```bash
    gh pr merge NUMBER --admin --merge
    ```
+
+   > **If the merge fails:** Run step 4 (re-enable `enforce_admins`) immediately before investigating the failure. Do not leave branch protection disabled while you troubleshoot.
+
 4. Re-enable `enforce_admins` immediately after:
    ```bash
    gh api repos/CivicTechWR/REPO/branches/main/protection/enforce_admins -X POST
