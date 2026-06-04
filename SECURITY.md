@@ -2,7 +2,7 @@
 
 ## Policy Maintenance
 
-This security policy is actively maintained by CivicTechWR organizers. It was last reviewed **November 14, 2025** and is scheduled for review **May 14, 2026**.
+This security policy is actively maintained by CivicTechWR organizers. It was last reviewed **June 4, 2026** and is scheduled for review **December 4, 2026**.
 
 ## Reporting a Vulnerability
 
