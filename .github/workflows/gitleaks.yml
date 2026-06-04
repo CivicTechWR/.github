@@ -66,10 +66,11 @@ jobs:
             echo "::notice::Gitleaks found no potential secrets."
           fi
 
-      - name: Note scan issues
+      - name: Fail on scan error
         if: ${{ steps.gitleaks.outcome == 'failure' && steps.summarize.outputs.found == 'false' }}
         run: |
-          echo "::warning::Gitleaks scan ended with an error before producing findings. Review the action logs."
+          echo "::error::Gitleaks scan ended with an error and produced no report. Review the action logs before merging."
+          exit 1
 
       - name: Add pull request comment
         if: ${{ steps.summarize.outputs.found == 'true' && github.event_name == 'pull_request' }}
@@ -130,6 +131,7 @@ jobs:
         env:
           LEAK_COUNT: ${{ steps.summarize.outputs.count }}
           HAS_FINDINGS: ${{ steps.summarize.outputs.found }}
+          SCAN_OUTCOME: ${{ steps.gitleaks.outcome }}
         run: |
           if [ "$HAS_FINDINGS" = "true" ]; then
             {
@@ -138,6 +140,12 @@ jobs:
               echo "Potential secrets detected: $LEAK_COUNT"
               echo "Report: gitleaks-report.json (uploaded as artifact when available)"
               echo "Guide: $RESPONSE_GUIDE_URL"
+            } >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$SCAN_OUTCOME" = "failure" ]; then
+            {
+              echo "## Gitleaks Findings"
+              echo ""
+              echo ":x: Scan error — gitleaks exited with an error and produced no report. Review the action logs."
             } >> "$GITHUB_STEP_SUMMARY"
           else
             {
