@@ -3,16 +3,20 @@ name: Gitleaks Scan
 on:
   push:
   pull_request:
+  schedule:
+    - cron: '0 9 * * 1'
   workflow_dispatch:
 
 permissions:
   contents: read
   pull-requests: write
+  issues: write
 
 jobs:
   scan:
     name: Scan for Leaked Secrets
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       RESPONSE_GUIDE_URL: https://github.com/CivicTechWR/.github/blob/main/docs/gitleaks-response.md
