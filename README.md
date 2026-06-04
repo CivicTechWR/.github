@@ -17,7 +17,7 @@ Default files that appear in all CivicTechWR repositories (unless overridden):
 - **SECURITY.md** - Security policy and vulnerability reporting
 - **ISSUE_TEMPLATE/** - Issue templates for bugs, features, and questions
 - **PULL_REQUEST_TEMPLATE.md** - Pull request template
-- **CODEOWNERS** - Default repository ownership and review responsibilities
+- **CODEOWNERS** - Ownership for *this* repository only. GitHub does not propagate this file to other repos — each project must add its own. See [codeowners-branch-protection.md](docs/governance/codeowners-branch-protection.md).
 
 ### Organization Profile
 
