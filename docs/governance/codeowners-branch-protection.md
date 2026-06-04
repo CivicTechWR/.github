@@ -127,10 +127,12 @@ Key considerations:
 | `@CivicTechWR/go-train-pass-project-team` | Active | `go-train-group-pass`. |
 | `@CivicTechWR/connected-kw` | Active | `connectedkw`. |
 | `@CivicTechWR/midtown-radio-app` | Active | `MidtownRadioApp`, `midtown-radio-launch-2025`. |
-| `@CivicTechWR/project-ploughshares-dev-team` & `@CivicTechWR/project-ploughshares-leads` | Active | `project-ploughshares`. Dev team handles code; leads handle partner coordination. |
+| `@CivicTechWR/project-ploughshares-dev-team` (Write) & `@CivicTechWR/project-ploughshares-leads` (Maintain) | Active | `project-ploughshares`. Dev team handles code; leads handle partner coordination. |
 | `@CivicTechWR/zonechanges` | Active | `WaterlooZoneChangeRequests`. |
 | `@CivicTechWR/ctwr-member-directory` | Active | `ctwr-member-directory`. |
-| `@CivicTechWR/project-pech` | Proposed | `project-pech`. Seed with `j2fyi` and an organizer for continuity. |
+| `@CivicTechWR/project-lomo-leads` (Maintain) | Active | `project-lomo`. Project leads. Previously named `project-lomo-admins`. |
+| `@CivicTechWR/accessible-housing-portal` (Write) | Active | `accessible-housing-portal`. |
+| `@CivicTechWR/project-pech` | Proposed | `project-pech`. Seed with `j2fyi` as lead and contributors from the project. |
 | `@CivicTechWR/mappingwr` | Proposed | `mappingwr`, `municipal-engagement`. |
 | `@CivicTechWR/storytelling` | Proposed | `storytelling`. |
 | `@CivicTechWR/project-templates` | Proposed | `CTWR-ProjectTemplate`, `CTWR-Project-Template-New`, `CTWR-Template`, `CTWR-Docs`. |
