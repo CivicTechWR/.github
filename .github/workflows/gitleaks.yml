@@ -96,7 +96,7 @@ jobs:
           exit 1
 
       - name: Open security issue (push findings)
-        if: ${{ steps.summarize.outputs.found == 'true' && github.event_name == 'push' }}
+        if: ${{ steps.summarize.outputs.found == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: actions/github-script@v7
         env:
           LEAK_COUNT: ${{ steps.summarize.outputs.count }}
