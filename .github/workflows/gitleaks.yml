@@ -95,6 +95,49 @@ jobs:
           echo "::error::Gitleaks scan ended with an error and produced no report. Review the action logs before merging."
           exit 1
 
+      - name: Open security issue (push findings)
+        if: ${{ steps.summarize.outputs.found == 'true' && github.event_name == 'push' }}
+        uses: actions/github-script@v7
+        env:
+          LEAK_COUNT: ${{ steps.summarize.outputs.count }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const findings = JSON.parse(fs.readFileSync('gitleaks-report.json', 'utf8'));
+            const responseGuide = process.env.RESPONSE_GUIDE_URL;
+            const sha = context.sha.substring(0, 7);
+
+            const lines = findings.slice(0, 10).map((f) => {
+              const file = f.file ? `\`${f.file}\`` : 'unknown file';
+              const line = f.startLine ? ` (line ${f.startLine})` : '';
+              const rule = f.ruleId || f.rule || 'potential secret';
+              return `- ${file}${line} — ${rule}`;
+            }).join('\n');
+
+            const remainder = findings.length > 10
+              ? `\n\n…and ${findings.length - 10} more finding(s) in the workflow artifact.`
+              : '';
+
+            const body = [
+              '<!-- gitleaks-push-findings -->',
+              `@CivicTechWR/organizers — Gitleaks flagged **${process.env.LEAK_COUNT}** potential secret(s) in a direct push to \`${context.ref}\` by @${context.actor} (commit \`${sha}\`).`,
+              '',
+              lines,
+              remainder,
+              '',
+              `See the [Gitleaks response guide](${responseGuide}) for next steps.`,
+              '',
+              '_Secret values are redacted by the scanner._',
+            ].filter(Boolean).join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[Security] Gitleaks: ${process.env.LEAK_COUNT} potential secret(s) on push by @${context.actor} (${sha})`,
+              body,
+            });
+
       - name: Add pull request comment
         if: ${{ steps.summarize.outputs.found == 'true' && github.event_name == 'pull_request' }}
         uses: actions/github-script@v7
