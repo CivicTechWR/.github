@@ -17,7 +17,7 @@ When this workflow comments on your pull request, it means Gitleaks spotted some
   - After rewriting history, regenerate the artifact (`git commit --amend` or new commit) and push with `--force-with-lease`.
   - If the secret landed in commit history already merged to the default branch, coordinate with maintainers before rewriting — downstream forks may need notification.
 - **Document replacements.** Update `.env.example` or secrets management notes so others know the new credential.
-- **Confirm the fix.** Run `gitleaks detect --redact` locally to verify the repository is clean before merging.
+- **Confirm the fix.** Run `gitleaks detect --config .gitleaks.toml --redact` locally to verify the repository is clean before merging. Then push the cleaned branch and confirm the gitleaks workflow passes in CI before merging.
 - **Update the PR comment.** Reply to the workflow comment summarizing what was rotated and how history was cleaned (no need to paste secrets).
 - **For high-impact secrets** (production credentials, user data access), escalate immediately in the organizers' channel or email `civictechwr@gmail.com`.
 
@@ -25,7 +25,7 @@ When this workflow comments on your pull request, it means Gitleaks spotted some
 
 - **Verify carefully.** Make sure the redacted value is truly benign (example: test data, dummy keys, or hashed values).
 - **Mask the pattern going forward.** Add an `allowlist` entry in your repository-level `.gitleaks.toml` and commit that change with a note explaining the rationale.
-- **Re-run locally.** Validate that `gitleaks detect --redact` reports no findings after the allowlist entry is added.
+- **Re-run locally.** Validate that `gitleaks detect --config .gitleaks.toml --redact` reports no findings after the allowlist entry is added.
 - **Reply on the PR.** Note that the finding is a false positive and link to the configuration change.
 
 ## Need Help?
