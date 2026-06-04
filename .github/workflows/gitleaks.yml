@@ -147,9 +147,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
-            const path = 'gitleaks-report.json';
+            const findings = JSON.parse(fs.readFileSync('gitleaks-report.json', 'utf8'));
             const responseGuide = process.env.RESPONSE_GUIDE_URL;
-            const findings = JSON.parse(fs.readFileSync(path, 'utf8'));
+            const MARKER = '<!-- gitleaks-findings -->';
 
             if (!Array.isArray(findings) || findings.length === 0) {
               return;
@@ -167,6 +167,7 @@ jobs:
               : '';
 
             const body = [
+              MARKER,
               `@CivicTechWR/organizers Gitleaks flagged **${process.env.LEAK_COUNT}** potential secret${findings.length === 1 ? '' : 's'} in this pull request.`,
               '',
               `Please review the [Gitleaks response guide](${responseGuide}) for next steps.`,
@@ -174,15 +175,34 @@ jobs:
               lines,
               remainder,
               '',
-              '_Secret values are redacted by the scanner. Follow the guide before merging._'
+              '_Secret values are redacted by the scanner. Follow the guide before merging._',
             ].filter(Boolean).join('\n');
 
-            await github.rest.issues.createComment({
+            const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body,
             });
+
+            const existing = comments.data.find(
+              c => c.user.login === 'github-actions[bot]' && c.body.includes(MARKER)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
 
       - name: Upload redacted report
         if: ${{ steps.summarize.outputs.found == 'true' }}
