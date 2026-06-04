@@ -38,18 +38,37 @@ jobs:
         env:
           GITLEAKS_VERSION: ${{ env.GITLEAKS_VERSION }}
 
+      - name: Set scan range
+        id: range
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+        run: |
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            echo "log_opts=origin/${BASE_REF}..HEAD" >> "$GITHUB_OUTPUT"
+          elif [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "log_opts=HEAD~1..HEAD" >> "$GITHUB_OUTPUT"
+          else
+            echo "log_opts=${BEFORE}..${AFTER}" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Run Gitleaks (redacted)
         id: gitleaks
         continue-on-error: true
         env:
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+          LOG_OPTS: ${{ steps.range.outputs.log_opts }}
         run: |
           gitleaks detect \
             --source . \
+            --config .gitleaks.toml \
             --no-banner \
             --redact \
             --report-format json \
-            --report-path gitleaks-report.json
+            --report-path gitleaks-report.json \
+            --log-opts "$LOG_OPTS"
 
       - name: Summarize findings
         id: summarize
